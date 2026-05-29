@@ -1,0 +1,30 @@
+@theme {
+    /* Breakpoints */
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 600px;
+    --breakpoint-md: 782px;
+    --breakpoint-lg: 960px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1440px;
+
+    /* Brand Colors — Blue & White */
+    --color-primary: #2563EB;
+    /* blue-600 */
+    --color-primary-dk: #1D4ED8;
+    /* blue-700 */
+    --color-accent: #3B82F6;
+    /* blue-500 */
+    --color-navy: #0A1628;
+    /* deep navy hero */
+    --color-navy-md: #0F2545;
+    --color-surface: #F0F5FF;
+    /* very light blue-white sections */
+    --color-white: #FFFFFF;
+    --color-slate: #1E293B;
+    /* body text */
+    --color-muted: #64748B;
+    --color-border: #DBEAFE;
+    /* blue-100 */
+    --color-dark: #0A1628;
+    --color-light: #F8FAFF;
+}
