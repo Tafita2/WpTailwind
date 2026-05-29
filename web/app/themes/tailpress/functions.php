@@ -184,11 +184,18 @@ add_action('add_meta_boxes', function () {
         wp_nonce_field('portfolio_details_nonce_action', 'portfolio_details_nonce');
         $url = get_post_meta($post->ID, '_portfolio_url', true);
         $client = get_post_meta($post->ID, '_portfolio_client', true);
+        $techs = get_post_meta($post->ID, '_portfolio_techs', true);
 
         echo '<div style="margin-bottom:15px;">';
         echo '<label for="portfolio_client" style="display:block;margin-bottom:8px;font-weight:600;">Nom de l\'entreprise / Client :</label>';
         echo '<input type="text" id="portfolio_client" name="portfolio_client" value="' . esc_attr($client) . '" style="width:100%;max-width:500px;" placeholder="Ex: Apple, Nike..." />';
-        echo '<p style="color:#666;font-size:13px;margin-top:6px;">Sera affiché sur le devant de la carte.</p>';
+        echo '<p style="color:#666;font-size:13px;margin-top:6px;">Sera affiché sur le bas de la face avant de la carte.</p>';
+        echo '</div>';
+
+        echo '<div style="margin-bottom:15px;">';
+        echo '<label for="portfolio_techs" style="display:block;margin-bottom:8px;font-weight:600;">Langages/Technologies (séparées par une virgule) :</label>';
+        echo '<input type="text" id="portfolio_techs" name="portfolio_techs" value="' . esc_attr($techs) . '" style="width:100%;max-width:500px;" placeholder="E-COMMERCE, PRESTASHOP, REACT..." />';
+        echo '<p style="color:#666;font-size:13px;margin-top:6px;">Les badges qui s\'afficheront sur la face avant.</p>';
         echo '</div>';
 
         echo '<div>';
@@ -211,6 +218,9 @@ add_action('save_post', function ($post_id) {
     }
     if (isset($_POST['portfolio_client'])) {
         update_post_meta($post_id, '_portfolio_client', sanitize_text_field($_POST['portfolio_client']));
+    }
+    if (isset($_POST['portfolio_techs'])) {
+        update_post_meta($post_id, '_portfolio_techs', sanitize_text_field($_POST['portfolio_techs']));
     }
     if (isset($_POST['portfolio_url'])) {
         update_post_meta($post_id, '_portfolio_url', sanitize_url($_POST['portfolio_url']));

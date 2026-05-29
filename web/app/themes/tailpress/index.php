@@ -41,11 +41,34 @@ get_header();
 				?>
 				<div class="flip-card reveal" data-delay="100">
 					<div class="flip-card-inner">
-						<!-- Front of Card: Image + Company Name -->
-						<div class="flip-card-front" style="background-image: url('<?php echo esc_url($thumb_url); ?>');">
-							<div class="flip-card-overlay"></div>
+						<!-- Front of Card: Top Image & Bottom Content -->
+						<div class="flip-card-front">
+							<div class="flip-card-img" style="background-image: url('<?php echo esc_url($thumb_url); ?>');">
+							</div>
 							<div class="flip-card-front-content">
-								<span class="flip-card-client"><?php echo esc_html($client_name); ?></span>
+								<?php
+								$techs = get_post_meta(get_the_ID(), '_portfolio_techs', true);
+								if (!empty($techs)) {
+									$tech_array = array_filter(array_map('trim', explode(',', $techs)));
+									if (!empty($tech_array)) {
+										echo '<div class="flip-card-tags">';
+										foreach ($tech_array as $tech) {
+											echo '<span class="flip-card-badge">' . esc_html($tech) . '</span>';
+										}
+										echo '</div>';
+									}
+								}
+								?>
+								<p class="flip-card-label">Projet réalisé pour</p>
+								<h3 class="flip-card-client-title"><?php echo esc_html($client_name); ?></h3>
+								<span class="flip-card-hint">
+									<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+										stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+										<circle cx="12" cy="12" r="3" />
+									</svg>
+									Voir les détails
+								</span>
 							</div>
 						</div>
 
