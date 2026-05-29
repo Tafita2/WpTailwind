@@ -457,6 +457,66 @@ body {
   transform: rotate(90deg) scale(1.05);
 }
 
+/* ───────── CONTACT SECTION BACKGROUND ───────── */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #FFFFFF 100%);
+}
+
+/* Animated glow blobs */
+.contact-section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.contact-section-bg::before,
+.contact-section-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  animation: contactGlow 12s ease-in-out infinite alternate;
+}
+
+/* Orb 1 — Azure pastel très doux */
+.contact-section-bg::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(186, 230, 253, 0.45) 0%, transparent 70%);
+  top: -150px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+/* Orb 2 — Indigo pastel très doux */
+.contact-section-bg::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(191, 219, 254, 0.35) 0%, transparent 70%);
+  bottom: -100px;
+  left: -80px;
+  animation-delay: -6s;
+}
+
+@keyframes contactGlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1.15) translate(20px, -20px);
+    opacity: 0.45;
+  }
+}
+
+
+
 /* ───────── CONTACT FORM ───────── */
 .contact-grid {
   display: grid;
@@ -479,12 +539,12 @@ body {
 .contact-info-title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #0F172A;
   margin: 0 0 0.75rem;
 }
 
 .contact-info-sub {
-  color: rgba(255, 255, 255, 0.5);
+  color: #475569;
   font-size: 0.95rem;
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -503,21 +563,26 @@ body {
 }
 
 .contact-icon-box {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  border-radius: 12px;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  background: #02A0D6;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(2, 160, 214, 0.25);
+}
+
+.contact-svg {
+  stroke: #FFFFFF;
 }
 
 .contact-info-label {
   font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(2, 160, 214);
   text-transform: uppercase;
   letter-spacing: 0.07em;
   margin: 0 0 0.2rem;
@@ -526,17 +591,17 @@ body {
 .contact-info-value {
   font-size: 0.95rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: #1E293B;
   margin: 0;
 }
 
 /* Form column */
 .contact-form-col {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
   border-radius: 1.5rem;
-  padding: 2.5rem;
-  backdrop-filter: blur(10px);
+  padding: 2.75rem;
 }
 
 .contact-form {
@@ -566,17 +631,17 @@ body {
 .contact-label {
   font-size: 0.78rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(15, 23, 42);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .contact-input {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #F8FAFF !important;
+  border: 1px solid #DBEAFE !important;
   border-radius: 0.75rem !important;
   padding: 0.75rem 1rem !important;
-  color: #FFFFFF !important;
+  color: #1E293B !important;
   font-size: 0.9rem !important;
   width: 100%;
   transition: border-color 0.2s ease, background 0.2s ease;
@@ -585,12 +650,12 @@ body {
 }
 
 .contact-input::placeholder {
-  color: rgba(255, 255, 255, 0.25) !important;
+  color: #94A3B8 !important;
 }
 
 .contact-input:focus {
   border-color: #02A0D6 !important;
-  background: rgba(2, 160, 214, 0.06) !important;
+  background: #EFF6FF !important;
 }
 
 .contact-textarea {

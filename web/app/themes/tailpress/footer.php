@@ -13,16 +13,17 @@
 <?php do_action('tailpress_content_after'); ?>
 
 <!-- ═══════════ CONTACT FORM (blue navy bg) ═══════════ -->
-<section id="contact" class="py-24 px-4" style="background:#0A1628;">
-    <div style="max-width:1100px;margin:auto;">
+<section id="contact" class="py-24 px-4 contact-section">
+    <div class="contact-section-bg" aria-hidden="true"></div>
+    <div style="max-width:1100px;margin:auto;position:relative;z-index:1;">
 
         <!-- Title -->
         <div style="text-align:center;margin-bottom:3.5rem;">
-            <span class="section-label" style="color:#60A5FA;">— Travaillons ensemble</span>
-            <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;line-height:1.15;color:#FFFFFF;margin:1rem 0;">
-                Vous avez un projet <span class="gradient-text">en tête ?</span>
+            <span class="section-label" style="color:#2563EB;">— Travaillons ensemble</span>
+            <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;line-height:1.15;color:#0F172A;margin:1rem 0;">
+                <span class="gradient-text">Vous avez un projet en tête ?</span>
             </h2>
-            <p style="color:rgba(255,255,255,0.5);font-size:1rem;max-width:480px;margin-inline:auto;line-height:1.8;">
+            <p style="color:#475569;font-size:1.05rem;max-width:480px;margin-inline:auto;line-height:1.8;">
                 Partagez votre vision et construisons ensemble une présence digitale qui vous démarque vraiment.
             </p>
         </div>
@@ -39,7 +40,7 @@
                 <div class="contact-info-items">
                     <div class="contact-info-item">
                         <div class="contact-icon-box">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA"
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="contact-svg"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                 <polyline points="22,6 12,13 2,6" />
@@ -54,7 +55,7 @@
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-icon-box">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA"
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="contact-svg"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 18z" />
@@ -69,7 +70,7 @@
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-icon-box">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA"
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="contact-svg"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10" />
                                 <polyline points="12 6 12 12 16 14" />
@@ -149,7 +150,7 @@
                     </div>
                     <span style="font-weight:700;font-size:0.95rem;color:#FFFFFF;"><?php bloginfo('name'); ?></span>
                 </a>
-                <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;">Créer. Innover. Inspirer.</p>
+                <p style="color:rgba(255,255,255,0.4);font-size:1.0rem;">Créer. Innover. Inspirer.</p>
             </div>
 
             <!-- Social -->
@@ -184,7 +185,7 @@
         <div class="gradient-divider"></div>
 
         <div class="md:flex md:items-center md:justify-between gap-4 mt-5">
-            <p style="color:rgba(255,255,255,0.35);font-size:0.76rem;">
+            <p style="color:rgba(255,255,255,0.35);font-size:1.0rem;">
                 &copy; <?php echo esc_html(date_i18n('Y')); ?> <?php bloginfo('name'); ?>. Tous droits réservés.
             </p>
             <!-- <p style="color:rgba(255,255,255,0.35);font-size:0.76rem;margin-top:0.4rem;">
