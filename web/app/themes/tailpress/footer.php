@@ -12,63 +12,124 @@
 
 <?php do_action('tailpress_content_after'); ?>
 
-<!-- ═══════════ CONTACT CTA (blue navy bg) ═══════════ -->
-<section id="contact" class="py-28 px-4" style="background:#0A1628;">
-    <div style="max-width:860px;margin:auto;text-align:center;position:relative;z-index:1;">
+<!-- ═══════════ CONTACT FORM (blue navy bg) ═══════════ -->
+<section id="contact" class="py-24 px-4" style="background:#0A1628;">
+    <div style="max-width:1100px;margin:auto;">
 
-        <span class="section-label" style="color:#60A5FA;">— Travaillons ensemble</span>
-        <h2
-            style="font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;color:#FFFFFF;margin:1rem 0 1.25rem;">
-            Vous avez un projet
-            <span class="gradient-text"> en tête ?</span>
-        </h2>
-        <p
-            style="color:rgba(255,255,255,0.55);font-size:1.05rem;line-height:1.8;margin-bottom:2.5rem;max-width:500px;margin-inline:auto;">
-            Partagez votre vision et construisons ensemble une présence digitale qui vous démarque vraiment.
-        </p>
-        <div class="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:contact@exemple.com" class="btn-primary" style="padding:0.9rem 2.2rem;font-size:0.95rem;">
-                Envoyer un message
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                </svg>
-            </a>
-            <a href="tel:+33600000000"
-                style="padding:0.9rem 2.2rem;font-size:0.95rem;border:2px solid rgba(255,255,255,0.25);color:#FFFFFF;border-radius:9999px;display:inline-flex;align-items:center;gap:0.5rem;font-weight:600;transition:border-color 0.2s ease,background 0.2s ease;text-decoration:none!important;">
-                Appeler directement
-            </a>
+        <!-- Title -->
+        <div style="text-align:center;margin-bottom:3.5rem;">
+            <span class="section-label" style="color:#60A5FA;">— Travaillons ensemble</span>
+            <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;line-height:1.15;color:#FFFFFF;margin:1rem 0;">
+                Vous avez un projet <span class="gradient-text">en tête ?</span>
+            </h2>
+            <p style="color:rgba(255,255,255,0.5);font-size:1rem;max-width:480px;margin-inline:auto;line-height:1.8;">
+                Partagez votre vision et construisons ensemble une présence digitale qui vous démarque vraiment.
+            </p>
         </div>
 
-        <!-- Info blocks -->
-        <div class="flex flex-wrap justify-center gap-10 mt-16 pt-10"
-            style="border-top:1px solid rgba(255,255,255,0.08);">
-            <div class="flex items-center gap-3">
-                <div
-                    style="width:38px;height:38px;border-radius:10px;background:rgba(37,99,235,0.2);border:1px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                    </svg>
+        <!-- Two-column layout -->
+        <div class="contact-grid">
+
+            <!-- LEFT — Info -->
+            <div class="contact-info-col">
+                <h3 class="contact-info-title">Prenons contact</h3>
+                <p class="contact-info-sub">Je suis disponible pour vos projets de développement web, design et conseil
+                    digital.</p>
+
+                <div class="contact-info-items">
+                    <div class="contact-info-item">
+                        <div class="contact-icon-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="contact-info-label">Email</p>
+                            <p class="contact-info-value">
+                                <?php echo esc_html(get_option('portfolio_contact_email', 'contact@exemple.com')); ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 18z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="contact-info-label">Téléphone</p>
+                            <p class="contact-info-value">
+                                <?php echo esc_html(get_option('portfolio_contact_phone', '+33 6 00 00 00 00')); ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="contact-info-label">Disponibilité</p>
+                            <p class="contact-info-value">
+                                <?php echo esc_html(get_option('portfolio_contact_availability', 'Réponse sous 24h')); ?>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <span style="color:rgba(255,255,255,0.65);font-size:0.875rem;">contact@exemple.com</span>
             </div>
-            <div class="flex items-center gap-3">
-                <div
-                    style="width:38px;height:38px;border-radius:10px;background:rgba(37,99,235,0.2);border:1px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                </div>
-                <span style="color:rgba(255,255,255,0.65);font-size:0.875rem;">Réponse sous 24h</span>
+
+            <!-- RIGHT — Form -->
+            <div class="contact-form-col">
+                <form class="contact-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                    <?php wp_nonce_field('contact_form_nonce_action', 'contact_form_nonce'); ?>
+                    <input type="hidden" name="action" value="portfolio_contact_form" />
+
+                    <div class="contact-form-row">
+                        <div class="contact-form-group">
+                            <label class="contact-label" for="cf_name">Nom complet</label>
+                            <input type="text" id="cf_name" name="cf_name" class="contact-input"
+                                placeholder="Nom et Prenom" required />
+                        </div>
+                        <div class="contact-form-group">
+                            <label class="contact-label" for="cf_email">Adresse e-mail</label>
+                            <input type="email" id="cf_email" name="cf_email" class="contact-input"
+                                placeholder="Votre Adresse Email" required />
+                        </div>
+                    </div>
+
+                    <div class="contact-form-group">
+                        <label class="contact-label" for="cf_subject">Objet</label>
+                        <input type="text" id="cf_subject" name="cf_subject" class="contact-input"
+                            placeholder="Création d'un site e-commerce..." />
+                    </div>
+
+                    <div class="contact-form-group">
+                        <label class="contact-label" for="cf_message">Message</label>
+                        <textarea id="cf_message" name="cf_message" class="contact-input contact-textarea" rows="5"
+                            placeholder="Décrivez votre projet en quelques lignes..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-submit">
+                        Envoyer le message
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer id="colophon" style="background:#060E1C;padding:3rem 1rem;" role="contentinfo">

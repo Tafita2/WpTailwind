@@ -6,6 +6,7 @@ if (is_file(__DIR__ . '/vendor/autoload_packages.php')) {
 
 // Admin pages
 require_once __DIR__ . '/inc/hero-admin-page.php';
+require_once __DIR__ . '/inc/contact-admin-page.php';
 
 
 // Bypassing Docker network restriction for Vite dev server
@@ -226,3 +227,34 @@ add_action('save_post', function ($post_id) {
         update_post_meta($post_id, '_portfolio_url', sanitize_url($_POST['portfolio_url']));
     }
 });
+
+// ─── CONTACT FORM HANDLER ──────────────────────────────────────
+add_action('admin_post_portfolio_contact_form', 'handle_portfolio_contact');
+add_action('admin_post_nopriv_portfolio_contact_form', 'handle_portfolio_contact');
+
+function handle_portfolio_contact()
+{
+    if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_nonce_action')) {
+        wp_die('Requête invalide.', 'Erreur', ['response' => 403]);
+    }
+
+    $name = sanitize_text_field($_POST['cf_name'] ?? '');
+    $email = sanitize_email($_POST['cf_email'] ?? '');
+    $subject = sanitize_text_field($_POST['cf_subject'] ?? 'Nouveau message de contact');
+    $message = sanitize_textarea_field($_POST['cf_message'] ?? '');
+
+    if (empty($name) || empty($email) || empty($message)) {
+        wp_redirect(add_query_arg('contact', 'error', wp_get_referer()));
+        exit;
+    }
+
+    $to = get_option('portfolio_contact_recipient', get_option('admin_email'));
+    $headers = ["Reply-To: {$name} <{$email}>", 'Content-Type: text/plain; charset=UTF-8'];
+    $body = "Nom     : {$name}\nEmail   : {$email}\nObjet   : {$subject}\n\n{$message}";
+
+    $sent = wp_mail($to, '[Portfolio] ' . $subject, $body, $headers);
+
+    $status = $sent ? 'success' : 'error';
+    wp_redirect(add_query_arg('contact', $status, home_url('/#contact')));
+    exit;
+}
